@@ -40,7 +40,7 @@ namespace P2
 
         void add (Alumno a);
 
-        Alumno readRecord (int pos);
+        Alumno readRecord (int id);
 
         bool erase (int pos);
 

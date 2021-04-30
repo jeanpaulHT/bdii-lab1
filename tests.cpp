@@ -84,6 +84,10 @@ void test2 ()
         std::cout << std::endl;
     }
 
+    print(fr.readRecord(9));
+
+
+
 
 
 }

@@ -17,6 +17,7 @@ vector<P2::Alumno> P2::FixedRecord::load ()
     vector<P2::Alumno> ret;
     fstream stream(file, ios::in | ios::binary);
     char buffer[sizeof(Alumno)];
+
     while (stream.read(buffer, sizeof(Alumno)))
     {
         Alumno& toAdd = *(Alumno*) buffer;
@@ -25,9 +26,17 @@ vector<P2::Alumno> P2::FixedRecord::load ()
     return ret;
 }
 
-P2::Alumno P2::FixedRecord::readRecord (int i)
+P2::Alumno P2::FixedRecord::readRecord (int id)
 {
-    return P2::Alumno();
+    fstream stream(file, ios::in | ios::binary);
+    char buffer[sizeof(Alumno)];
+    stream.seekp(id * sizeof(Alumno));
+    stream.read(buffer, sizeof(Alumno));
+
+    if (stream.fail())
+        std::cerr << "not found\n";
+
+    return *(Alumno*) buffer;
 }
 
 
@@ -49,6 +58,5 @@ void P2::FixedRecord::add (P2::Alumno a)
     {
         stream.seekg(0, ios_base::end);
         stream.write((char*) &a, sizeof(Alumno));
-//        print(a);
     }
 }
