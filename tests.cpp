@@ -22,6 +22,7 @@ void testp1 ()
     for (auto alumno: loadVec)
     {
         cout << "-------------------\n";
+        assert(alumno == fr.readRecord(numAlumnos));
         cout << "indice:" << numAlumnos++ << '\n';
         print(alumno);
     }

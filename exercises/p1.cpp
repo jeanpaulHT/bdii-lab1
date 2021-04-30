@@ -79,7 +79,7 @@ P1::Alumno P1::FixedRecord::readRecord (int i)
     Alumno alumno{};
     string line;
 
-    inFile.seekg(i * (sizeof(Alumno) + sizeof(char) * 1), ios::beg);
+    inFile.seekg(i * (sizeof(Alumno) + sizeof(char) * 2), ios::beg);
     getline(inFile,line);
 
     int pos = 0;
