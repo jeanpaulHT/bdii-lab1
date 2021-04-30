@@ -118,6 +118,17 @@ void test2 ()
 
     assert(fr.read_head() == -1);
 
+    fr.erase(1);
+    std::cout << fr.read_head() << ' ';
+    fr.erase(2);
+    std::cout << fr.read_head() << ' ';
+
+    for (auto i : fr.load()) {
+        print(i);
+        std::cout << std::endl;
+    }
+
+
     std::cout << "Test 2 passed!";
 
 }

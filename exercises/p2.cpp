@@ -67,8 +67,8 @@ void P2::FixedRecord::add (P2::Alumno a)
     }
     else // fuck
     {
-        int prev = head;
-        stream.seekg(head * sizeof(Alumno) + offset);
+        int prev = head - 1;
+        stream.seekg(prev * sizeof(Alumno) + offset);
         stream.read((char*) &head, sizeof(Node)); // head is next
 
         stream.seekp(prev * sizeof(Alumno));
@@ -76,9 +76,9 @@ void P2::FixedRecord::add (P2::Alumno a)
     }
 }
 
-bool P2::FixedRecord::erase (int pos)
+bool P2::FixedRecord::erase (int index)
 {
-    pos--;
+    auto pos = index - 1;
     // do push front on a int linked list
     using Node = decltype(Alumno::nextDel);
     static constexpr int offset = offsetof(Alumno, nextDel);
@@ -94,6 +94,6 @@ bool P2::FixedRecord::erase (int pos)
     stream.seekp(pos * sizeof(Alumno) + offset);
     stream.write((char*) &head, sizeof(Node));
 
-    this->head = pos;
+    this->head = index;
     return true;
 }
