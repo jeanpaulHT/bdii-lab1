@@ -4,22 +4,24 @@
 
 #include "exercises/p1.h"
 
-void testp1(){
+void testp1 ()
+{
     bool add = true;
     string fileName = "datos1";
     auto fr = P1::FixedRecord("../data/" + fileName + ".txt");
-    P1::Alumno b =  {"0201", "asdasd"     ,"Paredes XD",     "Ing. Cocina"};
+    P1::Alumno b = { "0201", "asdasd", "Paredes XD", "Ing. Cocina" };
 
-    //fr.add(b);
+    fr.add(b);
 
 
 //    cout<<"------Prueba de add y readRecord------\n";
 //    P1::Alumno res = fr.readRecord(3);
 //    print(res);
-    cout<<"------Prueba de load------\n";
+    cout << "------Prueba de load------\n";
     auto loadVec = fr.load();
     int numAlumnos = 0;
-    for(auto alumno: loadVec) {
+    for (auto alumno: loadVec)
+    {
         cout << "-------------------\n";
         cout << "indice:" << numAlumnos++ << '\n';
         print(alumno);
@@ -29,9 +31,7 @@ void testp1(){
 }
 
 
+void test2 ()
+{
 
-
-
-void test2(){
-    
 }

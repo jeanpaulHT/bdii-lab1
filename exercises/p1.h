@@ -9,28 +9,33 @@
 
 using namespace std;
 
-namespace P1{
+namespace P1
+{
 
-    struct Alumno{
-
-        char codigo [5];
-        char nombre [11];
-        char apellidos [20];
-        char carrera [15];
-
-
+    struct Alumno
+    {
+        char codigo[5];
+        char nombre[11];
+        char apellidos[20];
+        char carrera[15];
     };
 
+    constexpr int ALUMNO_MB_SIZE[] = { 5, 11, 20, 15};
 
-    class FixedRecord{
+
+    class FixedRecord
+    {
 
     private:
         string file;
     public:
-        FixedRecord(string str);
-        vector<Alumno> load();
-        void add(Alumno a);
-        Alumno readRecord(int pos);
+        FixedRecord (string str);
+
+        vector<Alumno> load ();
+
+        void add (Alumno a);
+
+        Alumno readRecord (int pos);
 
     };
 
@@ -38,8 +43,7 @@ namespace P1{
 }
 
 
-void print(P1::Alumno a);
-
+void print (P1::Alumno a);
 
 
 #endif //FILEORG_P1_H
