@@ -9,32 +9,40 @@
 
 using namespace std;
 
-struct p2{
+namespace P2
+{
 
-    struct Alumno{
+    struct Alumno
+    {
+        char codigo[5] = {'\0'};
+        char nombre[11] = {'\0'};
+        char apellidos[20] = {'\0'};
+        char carrera[15] = {'\0'};
 
-        char codigo [5];
-        char nombre [11];
-        char apellidos [20];
-        char carrera [15];
+        int ciclo = 0;
+        float mensualidad = 0.0f;
 
-        int NextDel = 0;
-
+        int nextDel = 0;
     };
 
 
-    class FixedRecord{
+    class FixedRecord
+    {
 
     private:
         string file;
-        int head = 0;
+        int head = -1;
+
     public:
-        FixedRecord(string str);
-        vector<Alumno> load();
-        void add(Alumno a);
-        void add(vector<Alumno> vec);
-        Alumno readRecord(int pos);
-        bool erase(int pos);
+        FixedRecord (string str);
+
+        vector<Alumno> load ();
+
+        void add (Alumno a);
+
+        Alumno readRecord (int pos);
+
+        bool erase (int pos);
 
     };
 

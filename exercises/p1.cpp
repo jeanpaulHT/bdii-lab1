@@ -72,14 +72,14 @@ void P1::FixedRecord::add (P1::Alumno record)
 }
 
 
-P1::Alumno P1::FixedRecord::readRecord (int i)
+P1::Alumno P1::FixedRecord::readRecord (int id)
 {
     ifstream inFile(file, ios::binary);
 
     Alumno alumno{};
     string line;
 
-    inFile.seekg(i * (sizeof(Alumno) + sizeof(char) * 2), ios::beg);
+    inFile.seekg(id * (sizeof(Alumno) + sizeof(char) * 2), ios::beg);
     getline(inFile,line);
 
     int pos = 0;
