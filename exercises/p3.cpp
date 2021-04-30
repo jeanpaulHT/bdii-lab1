@@ -20,6 +20,7 @@ std::vector<P3::Alumno> P3::VariableRecord::load ()
         std::getline(iss, student.apellidos, '|');
         std::getline(iss, student.carrera, '|');
         iss >> student.mensualidad;
+        ret.push_back(student);
     }
     return ret;
 }
