@@ -6,7 +6,6 @@
 #define FILEORG_P1_H
 
 #include "util.h"
-
 using namespace std;
 
 namespace P1

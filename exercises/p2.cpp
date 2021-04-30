@@ -5,6 +5,7 @@
 #include "p2.h"
 
 
+
 P2::FixedRecord::FixedRecord (string str) : file(std::move(str))
 {
     fstream stream(file, ios::out);
