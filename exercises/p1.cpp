@@ -4,6 +4,7 @@
 
 #include "p1.h"
 #include <cstring>
+#include <utility>
 
 void print (P1::Alumno a)
 {
@@ -14,14 +15,18 @@ void print (P1::Alumno a)
 }
 
 
-P1::FixedRecord::FixedRecord (string str) : file(str)
+P1::FixedRecord::FixedRecord (string str) : file(std::move(str))
 {
 }
 
-static inline void rtrim(std::string &s) {
-    s.erase(std::find_if(s.rbegin(), s.rend(), [](unsigned char ch) {
-        return !std::isspace(ch);
-    }).base(), s.end());
+static inline void rtrim (std::string& s)
+{
+    s.erase(
+        std::find_if(
+            s.rbegin(), s.rend(), [] (unsigned char ch)
+            {
+                return !std::isspace(ch);
+            }).base(), s.end());
 }
 
 
@@ -35,15 +40,15 @@ vector<P1::Alumno> P1::FixedRecord::load ()
 
     while (getline(inFile, line))
     {
-        char buffer[sizeof(Alumno)];
-        int position = 0;
-        for (int length : ALUMNO_MB_SIZE) {
-            auto member = line.substr(position, length);
-            rtrim(member);
-            memcpy(buffer + position, member.c_str(), member.size() + 1);
-            position += length;
+        line.resize(sizeof(Alumno), ' ');
+        int pos = 0;
+        for (int length : ALUMNO_MB_SIZE)
+        {
+            for (int i = length - 1; line[pos + i] == ' ' && i >= 0; --i)
+                line[pos + i] = '\0';
+            pos += length;
         }
-        res.emplace_back(*(Alumno*) buffer);
+        res.emplace_back(*(Alumno*) line.data());
     }
     inFile.close();
     return res;
@@ -51,10 +56,14 @@ vector<P1::Alumno> P1::FixedRecord::load ()
 
 void P1::FixedRecord::add (P1::Alumno record)
 {
-    using Arr = char[sizeof (Alumno)];
+    using Arr = char[sizeof(Alumno)];
 
     ofstream outFile(file, ios::app);
     if (!outFile.is_open()) exit(-1);
+
+    // this is just bad code. It's also dumb code. Furthermore, it's bad and
+    // dumb code that I shouldn't have needed to implement, but was forced to
+    // because of the data layout in the input file. WHY?
     auto& buffer = *(Arr*) &record;
     std::replace(begin(buffer), end(buffer), '\0', ' ');
     outFile.write(buffer, sizeof(Alumno));
