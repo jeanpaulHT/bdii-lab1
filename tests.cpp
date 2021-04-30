@@ -45,49 +45,78 @@ void testp1 ()
 
 static double rand_m ()
 {
-    double f = (double)rand() / RAND_MAX;
+    double f = (double) rand() / RAND_MAX;
     return 0.0 + f * (10000.0 - 0.0);
+}
+
+P2::Alumno random_student (int code)
+{
+    stringstream ss;
+
+    P2::Alumno student;
+    ss << std::setfill('0') << std::setw(4) << code;
+    memcpy(student.codigo, ss.str().c_str(), sizeof(student.codigo));
+
+    for (int i = 0; i < sizeof(student.nombre) - 1; ++i)
+    {
+        student.nombre[i] = 'a' + rand() % 26;
+    }
+    for (int i = 0; i < sizeof(student.apellidos) - 1; ++i)
+    {
+        student.apellidos[i] = 'a' + rand() % 26;
+    }
+    for (int i = 0; i < sizeof(student.carrera) - 1; ++i)
+    {
+        student.carrera[i] = 'a' + rand() % 26;
+    }
+    student.ciclo = rand();
+    student.mensualidad = rand_m();
+
+    return student;
 }
 
 void test2 ()
 {
+    constexpr auto CODE_SZ = sizeof(P2::Alumno::codigo);
+    constexpr int NUM_ENTRIES = 100;
+
     string filename = "new_data_1";
     auto fr = P2::FixedRecord("../data/" + filename + ".dat");
 
-    stringstream ss;
-    for (int code_int = 0; code_int < 10; ++code_int)
+    for (int code_int = 1; code_int <= NUM_ENTRIES; ++code_int)
     {
-        P2::Alumno student;
-        ss << std::setfill('0') << std::setw(4) << code_int;
-        memcpy(student.codigo, ss.str().c_str(), sizeof(student.codigo));
-        ss.str("");
-
-        for (int i = 0; i < sizeof(student.nombre) - 1; ++i)
-        {
-            student.nombre[i] = 'a' + rand()%26;
-        }
-        for (int i = 0; i < sizeof(student.apellidos) - 1; ++i)
-        {
-            student.apellidos[i] = 'a' + rand()%26;
-        }
-        for (int i = 0; i < sizeof(student.carrera) - 1; ++i)
-        {
-            student.carrera[i] = 'a' + rand()%26;
-        }
-        student.ciclo = rand();
-        student.mensualidad = rand_m();
-
+        auto student = random_student(code_int);
         fr.add(student);
     }
-    for (auto student : fr.load()) {
-        print(student);
+
+    auto loaded = fr.load();
+    string last;
+    stringstream ss;
+
+    for (int i = 1; i <= NUM_ENTRIES; ++i)
+    {
+        print(loaded[i - 1]);
         std::cout << std::endl;
+
+        ss << std::setfill('0') << std::setw(4) << i;
+        last = ss.str();
+        assert(memcmp(loaded[i].codigo, last.c_str(), CODE_SZ));
     }
 
-    print(fr.readRecord(9));
+    assert(memcmp(fr.readRecord(NUM_ENTRIES).codigo, last.c_str(), CODE_SZ));
 
+    bool erase_1 = fr.erase(NUM_ENTRIES);
+    bool erase_2 = fr.erase(NUM_ENTRIES / 2);
 
+    assert(erase_1);
+    assert(erase_2);
 
+    fr.add(random_student(NUM_ENTRIES + 1));
+    fr.add(random_student(NUM_ENTRIES + 2));
 
+    ss << std::setfill('0') << std::setw(4) << NUM_ENTRIES + 2;
+    assert(memcmp(fr.readRecord(NUM_ENTRIES).codigo, ss.str().c_str(), CODE_SZ));
+
+    assert(fr.read_head() == -1);
 
 }

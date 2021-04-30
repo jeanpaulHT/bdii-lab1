@@ -34,7 +34,7 @@ namespace P2
         int head = -1;
 
     public:
-        FixedRecord (string str);
+        explicit FixedRecord (string str);
 
         vector<Alumno> load ();
 
@@ -44,6 +44,9 @@ namespace P2
 
         bool erase (int pos);
 
+        [[nodiscard]] int read_head() const {
+            return head;
+        }
     };
 
 };
