@@ -35,7 +35,7 @@ namespace P1
 
         void add (Alumno a);
 
-        Alumno readRecord (int pos);
+        Alumno readRecord (int i);
 
     };
 

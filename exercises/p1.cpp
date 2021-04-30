@@ -3,7 +3,6 @@
 //
 
 #include "p1.h"
-#include <cstring>
 #include <utility>
 
 void print (P1::Alumno a)
@@ -73,15 +72,24 @@ void P1::FixedRecord::add (P1::Alumno record)
 }
 
 
-P1::Alumno P1::FixedRecord::readRecord (int pos)
+P1::Alumno P1::FixedRecord::readRecord (int i)
 {
-    ifstream inFile(file);
+    ifstream inFile(file, ios::binary);
 
     Alumno alumno{};
-    inFile.seekg(pos * (sizeof(Alumno)), ios::beg);
-    // it works
-    //
-    inFile.read((char*) &alumno, sizeof(Alumno));
+    string line;
+
+    inFile.seekg(i * (sizeof(Alumno) + sizeof(char) * 2), ios::beg);
+    getline(inFile,line);
+
+    int pos = 0;
+    for (int length : ALUMNO_MB_SIZE)
+    {
+        for (int i = length - 1; line[pos + i] == ' ' && i >= 0; --i)
+            line[pos + i] = '\0';
+        pos += length;
+    }
+    alumno = *(Alumno*) line.data();
     inFile.close();
 
     return alumno;

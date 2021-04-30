@@ -10,6 +10,8 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-#include <assert.h>
+#include <cassert>
+#include <cstring>
+#include <algorithm>
 
 #endif //FILEORG_UTIL_H
