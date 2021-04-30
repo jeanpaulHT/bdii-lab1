@@ -79,7 +79,7 @@ P1::Alumno P1::FixedRecord::readRecord (int i)
     Alumno alumno{};
     string line;
 
-    inFile.seekg(i * (sizeof(Alumno) + sizeof(char) * 2), ios::beg);
+    inFile.seekg(i * (sizeof(Alumno) + sizeof(char) * 1), ios::beg);
     getline(inFile,line);
 
     int pos = 0;
@@ -93,4 +93,11 @@ P1::Alumno P1::FixedRecord::readRecord (int i)
     inFile.close();
 
     return alumno;
+}
+
+bool P1::Alumno::operator==(const P1::Alumno &rhs) const {
+    return strcmp(this->codigo, rhs.codigo) == 0 &&
+            strcmp(this->nombre, rhs.nombre) == 0 &&
+            strcmp(this->apellidos, rhs.apellidos) == 0 &&
+            strcmp(this->carrera, rhs.carrera) == 0;
 }

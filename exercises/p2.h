@@ -19,6 +19,7 @@ struct p2{
         char carrera [15];
 
         int NextDel = 0;
+
     };
 
 

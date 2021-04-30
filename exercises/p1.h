@@ -18,6 +18,8 @@ namespace P1
         char nombre[11];
         char apellidos[20];
         char carrera[15];
+
+        bool operator==(const Alumno &rhs) const;
     };
 
     constexpr int ALUMNO_MB_SIZE[] = { 5, 11, 20, 15};
