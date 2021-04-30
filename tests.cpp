@@ -95,9 +95,6 @@ void test2 ()
 
     for (int i = 1; i <= NUM_ENTRIES; ++i)
     {
-        print(loaded[i - 1]);
-        std::cout << std::endl;
-
         ss << std::setfill('0') << std::setw(4) << i;
         last = ss.str();
         assert(memcmp(loaded[i].codigo, last.c_str(), CODE_SZ));
@@ -115,7 +112,8 @@ void test2 ()
     fr.add(random_student(NUM_ENTRIES + 2));
 
     ss << std::setfill('0') << std::setw(4) << NUM_ENTRIES + 2;
-    assert(memcmp(fr.readRecord(NUM_ENTRIES).codigo, ss.str().c_str(), CODE_SZ));
+    assert(
+        memcmp(fr.readRecord(NUM_ENTRIES).codigo, ss.str().c_str(), CODE_SZ));
 
     assert(fr.read_head() == -1);
 
