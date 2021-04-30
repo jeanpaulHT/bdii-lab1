@@ -164,18 +164,21 @@ void test3 ()
     constexpr int NUM_ENTRIES = 100;
 
     string filename = "var_data_1";
-    auto fr = P3::VariableRecord("../data/" + filename + ".dat");
+    auto vr = P3::VariableRecord("../data/" + filename + ".dat");
 
     for (int code_int = 1; code_int <= NUM_ENTRIES; ++code_int)
     {
         auto student = random_p3_student();
-        fr.add(student);
+        vr.add(student);
     }
 
-    auto loaded = fr.load();
+    auto loaded = vr.load();
     for (const auto& i : loaded) {
         P3::print(i);
     }
+    auto student = vr.readRecord(NUM_ENTRIES);
+    std::cout << std::endl;
+    P3::print(student);
 
     std::cout << "Test 3 passed!";
 
