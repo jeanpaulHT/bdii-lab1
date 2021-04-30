@@ -55,9 +55,9 @@ void test2 ()
     auto fr = P2::FixedRecord("../data/" + filename + ".dat");
 
     stringstream ss;
-    P2::Alumno student;
-    for (int code_int = 0; code_int < 100; ++code_int)
+    for (int code_int = 0; code_int < 10; ++code_int)
     {
+        P2::Alumno student;
         ss << std::setfill('0') << std::setw(4) << code_int;
         memcpy(student.codigo, ss.str().c_str(), sizeof(student.codigo));
         ss.str("");
@@ -78,6 +78,10 @@ void test2 ()
         student.mensualidad = rand_m();
 
         fr.add(student);
+    }
+    for (auto student : fr.load()) {
+        print(student);
+        std::cout << std::endl;
     }
 
 

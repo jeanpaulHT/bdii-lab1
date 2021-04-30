@@ -48,5 +48,7 @@ namespace P2
 
 };
 
+void print (P2::Alumno a);
+
 
 #endif //FILEORG_P2_H
