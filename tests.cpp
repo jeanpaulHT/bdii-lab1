@@ -78,7 +78,7 @@ P2::Alumno random_student (int code)
 void test2 ()
 {
     constexpr auto CODE_SZ = sizeof(P2::Alumno::codigo);
-    constexpr int NUM_ENTRIES = 100;
+    constexpr int NUM_ENTRIES = 3;
 
     string filename = "new_data_1";
     auto fr = P2::FixedRecord("../data/" + filename + ".dat");
@@ -101,6 +101,7 @@ void test2 ()
     }
 
     assert(memcmp(fr.readRecord(NUM_ENTRIES).codigo, last.c_str(), CODE_SZ));
+    loaded.clear();
 
     bool erase_1 = fr.erase(NUM_ENTRIES);
     bool erase_2 = fr.erase(NUM_ENTRIES / 2);
@@ -112,9 +113,11 @@ void test2 ()
     fr.add(random_student(NUM_ENTRIES + 2));
 
     ss << std::setfill('0') << std::setw(4) << NUM_ENTRIES + 2;
-    assert(
-        memcmp(fr.readRecord(NUM_ENTRIES).codigo, ss.str().c_str(), CODE_SZ));
+    auto str = ss.str();
+    assert(memcmp(fr.readRecord(NUM_ENTRIES).codigo, str.c_str(), CODE_SZ));
 
     assert(fr.read_head() == -1);
+
+    std::cout << "Test 2 passed!";
 
 }
