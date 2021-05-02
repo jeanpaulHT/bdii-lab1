@@ -122,15 +122,6 @@ void P4::metaData::add(size_t size) {
     stream.write((char *) &size, sizeof(size));
 
     stream.close();
-
-//    pos =4;
-//    size = 3;
-//    std::fstream testStream(filename, std::ios::in | std::ios::binary);
-//    testStream.read((char*) &pos, sizeof(pos));
-//    std::cout<<pos;
-//    testStream.read((char*) &size, sizeof(size));
-//    std::cout<<" "<<size<<'\n';
-
 }
 
 int P4::metaData::readRecord(int pos) {
