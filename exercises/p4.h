@@ -21,33 +21,25 @@ namespace P4{
 
 
 
-    struct metaData
+    struct Metadata
     {
-
-        std::string filename;
-
-        explicit metaData (std::string name);
-
-        void add (size_t size);
-
-        int readRecord ( int pos);
-
-        std::vector<std::pair<size_t, size_t>> readAll();
+        int position;
+        int size;
     };
 
     struct VariableRecord
     {
-
+        std::string headerFile;
         std::string filename;
-        metaData metaData;
 
         explicit VariableRecord (std::string name);
 
-        std::vector<Matricula> load ();
+        std::vector<Matricula> load();
 
-        void add (const Matricula& record);
+        void add(Matricula record);
 
-        Matricula readRecord (int pos);
+        Matricula readRecord(int pos);
+
     };
 
     static void print (const Matricula& m)

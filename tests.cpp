@@ -189,35 +189,21 @@ void test3 ()
 void test4 ()
 {
     string filename = "new_data_2";
-    auto fr = P4::VariableRecord("../data/" + filename + ".dat");
+
+    auto vr = P4::VariableRecord("../data/" + filename + ".dat");
+
     P4::Matricula m {"1023",3,2020.13,"XD le falta descansito"};
     P4::Matricula m1 {"10223",3,2022.13,"XD"};
     P4::Matricula m2 {"1024",0,10.13,"le falta"};
 
+    vr.add(m);
+    vr.add(m2);
+    vr.add(m1);
 
-    fr.add(m);
-    fr.add(m2);
-    fr.add(m1);
+    for (const auto& i : vr.load())
+        print(i);
 
-
-    auto lVec = fr.load();
-
-    int posMatricula = 1;
-    for(auto matricula: lVec){
-        print(matricula);
-        assert(matricula == fr.readRecord(posMatricula));
-        posMatricula++;
-    }
-
-//    for(auto data: fr.metaData.readAll()){
-//        cout<<data.first<<" "<<data.second<<'\n';
-//    }
-
-//    for(int i =0; i < 2; i++){
-//        print(fr.readRecord(i + 1));
-//    }
-
-
-
+    for (int i = 1; i <= 3; ++i)
+        print(vr.readRecord(i));
 
 }
