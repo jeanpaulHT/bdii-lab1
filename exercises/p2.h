@@ -23,6 +23,7 @@ namespace P2
         float mensualidad = 0.0f;
 
         int nextDel = 0;
+
     };
 
 

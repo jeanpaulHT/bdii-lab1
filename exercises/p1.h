@@ -13,10 +13,10 @@ namespace P1
 
     struct Alumno
     {
-        char codigo[5];
-        char nombre[11];
-        char apellidos[20];
-        char carrera[15];
+        char codigo[5] = {'\0'};
+        char nombre[11] = {'\0'};
+        char apellidos[20] = {'\0'};
+        char carrera[15] = {'\0'};
 
         bool operator==(const Alumno &rhs) const;
     };
