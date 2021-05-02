@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/esteb/Desktop/bdii-lab1/p4.cpp
+iostream
+-
+time.h
+-
+tests/test_P4.hpp
+C:/Users/esteb/Desktop/bdii-lab1/tests/test_P4.hpp
+
+C:/Users/esteb/Desktop/bdii-lab1/src/p4.h
+string
+-
+vector
+-
+fstream
+-
+sstream
+-
+cstring
+-
+algorithm
+-
+cmath
+-
+utility
+-
+
+C:/Users/esteb/Desktop/bdii-lab1/tests/test_P4.hpp
+iomanip
+-
+cassert
+-
+../src/p4.h
+C:/Users/esteb/Desktop/bdii-lab1/src/p4.h
+

@@ -3,4 +3,9 @@ project(fileOrganization)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(fileOrganization main.cpp exercises/p1.cpp exercises/p1.h tests.cpp exercises/p2.cpp exercises/p2.h exercises/util.h exercises/p3.cpp exercises/p3.h exercises/p4.cpp exercises/p4.h)
+add_executable(fileOrganization
+#        p1.cpp src/p1.h tests/test_P1.hpp
+#        p2.cpp src/p2.h tests/test_P2.hpp
+#        p3.cpp src/p3.h  tests/test_P3.hpp
+        p4.cpp src/p4.h  tests/test_P4.hpp
+        )
