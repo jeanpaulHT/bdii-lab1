@@ -19,6 +19,11 @@ namespace P3
         float mensualidad;
     };
 
+    struct metaData{
+        int pos;
+        size_t size;
+    };
+
     struct VariableRecord
     {
 

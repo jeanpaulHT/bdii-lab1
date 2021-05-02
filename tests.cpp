@@ -6,6 +6,7 @@
 #include "exercises/p1.h"
 #include "exercises/p2.h"
 #include "exercises/p3.h"
+#include "exercises/p4.h"
 
 
 void testp1 ()
@@ -104,7 +105,7 @@ P3::Alumno random_p3_student ()
 void test2 ()
 {
     constexpr auto CODE_SZ = sizeof(P2::Alumno::codigo);
-    constexpr int NUM_ENTRIES = 100;
+    constexpr int NUM_ENTRIES = 10;
 
     string filename = "new_data_1";
     auto fr = P2::FixedRecord("../data/" + filename + ".dat");
@@ -181,5 +182,42 @@ void test3 ()
     P3::print(student);
 
     std::cout << "Test 3 passed!";
+
+}
+
+
+void test4 ()
+{
+    string filename = "new_data_2";
+    auto fr = P4::VariableRecord("../data/" + filename + ".dat");
+    P4::Matricula m {"1023",3,2020.13,"XD le falta descansito"};
+    P4::Matricula m1 {"10223",3,2022.13,"XD"};
+    P4::Matricula m2 {"1024",0,10.13,"le falta"};
+
+
+    fr.add(m);
+    fr.add(m2);
+    fr.add(m1);
+
+
+    auto lVec = fr.load();
+
+    int posMatricula = 1;
+    for(auto matricula: lVec){
+        print(matricula);
+        assert(matricula == fr.readRecord(posMatricula));
+        posMatricula++;
+    }
+
+//    for(auto data: fr.metaData.readAll()){
+//        cout<<data.first<<" "<<data.second<<'\n';
+//    }
+
+//    for(int i =0; i < 2; i++){
+//        print(fr.readRecord(i + 1));
+//    }
+
+
+
 
 }
