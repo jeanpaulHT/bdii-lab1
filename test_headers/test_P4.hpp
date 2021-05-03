@@ -7,6 +7,7 @@
 
 #include <iomanip>
 #include <cassert>
+#include <iostream>
 #include "../headers//p4.h"
 
 static double rand_payment ()
@@ -44,7 +45,7 @@ P4::Matricula random_p4_matricula ()
 }
 void test4 ()
 {
-    constexpr int NUM_ENTRIES = 10;
+    constexpr int NUM_ENTRIES = 100;
 
     string filename = "new_data_2";
 
@@ -58,6 +59,7 @@ void test4 ()
     {
         auto matricula = random_p4_matricula();
         vr.add(matricula);
+        cout<<"register #"<<code_int<<" added\n";
     }
 
     vr.add(m);
@@ -66,11 +68,13 @@ void test4 ()
 
     auto mload = vr.load();
     assert(mload.size() == NUM_ENTRIES + 3);
+    cout<<"added successful and 3 extra entries added\n";
+
 
     int posMatricula = 1;
     for (const auto& i : vr.load()){
-        print(i);
         assert(i == vr.readRecord(posMatricula));
+        cout<<"register in pos #"<<posMatricula<<" checked\n";
         posMatricula++;
     }
     std::cout << "Test 4 passed!";

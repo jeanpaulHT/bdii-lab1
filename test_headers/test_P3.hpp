@@ -6,6 +6,7 @@
 #define FILEORGANIZATION_TEST_P3_HPP
 
 #include <iomanip>
+#include <cassert>
 #include "../headers//p3.h"
 
 static double rand_payment ()
@@ -50,18 +51,27 @@ void test3 ()
     {
         auto student = random_p3_student();
         vr.add(student);
+        cout<<"register #"<<code_int<<" added\n";
     }
 
     auto loaded = vr.load();
-    for (const auto& i : loaded)
+    int numEntries = 1;
+    for (auto i : loaded)
     {
-        P3::print(i);
+        P3::Alumno tempAlumno;
+        tempAlumno = vr.readRecord(numEntries);
+        assert(i == tempAlumno);
+        cout<<"register in pos #"<<numEntries<<" checked\n";
+        numEntries++;
     }
     auto student = vr.readRecord(NUM_ENTRIES);
     std::cout << std::endl;
     P3::print(student);
+    std::cout << "read record checked! \n";
+
 
     std::cout << "Test 3 passed!";
+
 
 }
 

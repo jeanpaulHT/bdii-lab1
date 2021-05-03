@@ -19,6 +19,8 @@ namespace P3
         std::string apellidos;
         std::string carrera;
         float mensualidad;
+
+        bool operator == (const Alumno& rhs) const;
     };
 
     struct metaData{
