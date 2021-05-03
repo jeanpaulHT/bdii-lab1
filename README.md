@@ -9,6 +9,6 @@
 ```
 git clone https://github.com/jeanpaulHT/bdii-lab1.git
 cd source
-g++ p<# test>.cpp
+g++ p[1, 2, 3 or 4].cpp
 ```
 
