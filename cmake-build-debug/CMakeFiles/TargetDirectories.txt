@@ -1,3 +1,0 @@
-C:/Users/esteb/Desktop/bdii-lab1/cmake-build-debug/CMakeFiles/fileOrganization.dir
-C:/Users/esteb/Desktop/bdii-lab1/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/esteb/Desktop/bdii-lab1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
