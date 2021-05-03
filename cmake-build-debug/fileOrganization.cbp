@@ -85,10 +85,10 @@
 		<Unit filename="C:/Users/esteb/Desktop/bdii-lab1/headers/p1.h">
 			<Option target="fileOrganization"/>
 		</Unit>
-		<Unit filename="C:/Users/esteb/Desktop/bdii-lab1/src/p1.cpp">
+		<Unit filename="C:/Users/esteb/Desktop/bdii-lab1/source/p1.cpp">
 			<Option target="fileOrganization"/>
 		</Unit>
-		<Unit filename="C:/Users/esteb/Desktop/bdii-lab1/tests/test_P1.hpp">
+		<Unit filename="C:/Users/esteb/Desktop/bdii-lab1/test_headers/test_P1.hpp">
 			<Option target="fileOrganization"/>
 		</Unit>
 		<Unit filename="C:/Users/esteb/Desktop/bdii-lab1/CMakeLists.txt">

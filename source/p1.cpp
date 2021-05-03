@@ -1,12 +1,12 @@
 #include <iostream>
 #include <time.h>
-#include "../tests/test_P2.hpp"
+#include "../test_headers//test_P1.hpp"
 
 
 
 int main() {
     srand(time(nullptr));
-    test2();
+    test1();
 
 
     return 0;

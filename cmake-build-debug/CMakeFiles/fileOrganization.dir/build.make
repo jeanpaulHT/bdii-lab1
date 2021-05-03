@@ -75,27 +75,27 @@ include CMakeFiles/fileOrganization.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/fileOrganization.dir/flags.make
 
-CMakeFiles/fileOrganization.dir/src/p1.cpp.obj: CMakeFiles/fileOrganization.dir/flags.make
-CMakeFiles/fileOrganization.dir/src/p1.cpp.obj: ../src/p1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\esteb\Desktop\bdii-lab1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/fileOrganization.dir/src/p1.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\fileOrganization.dir\src\p1.cpp.obj -c C:\Users\esteb\Desktop\bdii-lab1\src\p1.cpp
+CMakeFiles/fileOrganization.dir/source/p1.cpp.obj: CMakeFiles/fileOrganization.dir/flags.make
+CMakeFiles/fileOrganization.dir/source/p1.cpp.obj: ../source/p1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\esteb\Desktop\bdii-lab1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/fileOrganization.dir/source/p1.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\fileOrganization.dir\source\p1.cpp.obj -c C:\Users\esteb\Desktop\bdii-lab1\source\p1.cpp
 
-CMakeFiles/fileOrganization.dir/src/p1.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fileOrganization.dir/src/p1.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\esteb\Desktop\bdii-lab1\src\p1.cpp > CMakeFiles\fileOrganization.dir\src\p1.cpp.i
+CMakeFiles/fileOrganization.dir/source/p1.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fileOrganization.dir/source/p1.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\esteb\Desktop\bdii-lab1\source\p1.cpp > CMakeFiles\fileOrganization.dir\source\p1.cpp.i
 
-CMakeFiles/fileOrganization.dir/src/p1.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fileOrganization.dir/src/p1.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\esteb\Desktop\bdii-lab1\src\p1.cpp -o CMakeFiles\fileOrganization.dir\src\p1.cpp.s
+CMakeFiles/fileOrganization.dir/source/p1.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fileOrganization.dir/source/p1.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\esteb\Desktop\bdii-lab1\source\p1.cpp -o CMakeFiles\fileOrganization.dir\source\p1.cpp.s
 
 # Object files for target fileOrganization
 fileOrganization_OBJECTS = \
-"CMakeFiles/fileOrganization.dir/src/p1.cpp.obj"
+"CMakeFiles/fileOrganization.dir/source/p1.cpp.obj"
 
 # External object files for target fileOrganization
 fileOrganization_EXTERNAL_OBJECTS =
 
-fileOrganization.exe: CMakeFiles/fileOrganization.dir/src/p1.cpp.obj
+fileOrganization.exe: CMakeFiles/fileOrganization.dir/source/p1.cpp.obj
 fileOrganization.exe: CMakeFiles/fileOrganization.dir/build.make
 fileOrganization.exe: CMakeFiles/fileOrganization.dir/linklibs.rsp
 fileOrganization.exe: CMakeFiles/fileOrganization.dir/objects1.rsp

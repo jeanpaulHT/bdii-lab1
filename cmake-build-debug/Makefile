@@ -141,32 +141,32 @@ fileOrganization/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\fileOrganization.dir\build.make CMakeFiles/fileOrganization.dir/build
 .PHONY : fileOrganization/fast
 
-src/p1.obj: src/p1.cpp.obj
+source/p1.obj: source/p1.cpp.obj
 
-.PHONY : src/p1.obj
+.PHONY : source/p1.obj
 
 # target to build an object file
-src/p1.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\fileOrganization.dir\build.make CMakeFiles/fileOrganization.dir/src/p1.cpp.obj
-.PHONY : src/p1.cpp.obj
+source/p1.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\fileOrganization.dir\build.make CMakeFiles/fileOrganization.dir/source/p1.cpp.obj
+.PHONY : source/p1.cpp.obj
 
-src/p1.i: src/p1.cpp.i
+source/p1.i: source/p1.cpp.i
 
-.PHONY : src/p1.i
+.PHONY : source/p1.i
 
 # target to preprocess a source file
-src/p1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\fileOrganization.dir\build.make CMakeFiles/fileOrganization.dir/src/p1.cpp.i
-.PHONY : src/p1.cpp.i
+source/p1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\fileOrganization.dir\build.make CMakeFiles/fileOrganization.dir/source/p1.cpp.i
+.PHONY : source/p1.cpp.i
 
-src/p1.s: src/p1.cpp.s
+source/p1.s: source/p1.cpp.s
 
-.PHONY : src/p1.s
+.PHONY : source/p1.s
 
 # target to generate assembly for a file
-src/p1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\fileOrganization.dir\build.make CMakeFiles/fileOrganization.dir/src/p1.cpp.s
-.PHONY : src/p1.cpp.s
+source/p1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\fileOrganization.dir\build.make CMakeFiles/fileOrganization.dir/source/p1.cpp.s
+.PHONY : source/p1.cpp.s
 
 # Help Target
 help:
@@ -177,9 +177,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... fileOrganization
-	@echo ... src/p1.obj
-	@echo ... src/p1.i
-	@echo ... src/p1.s
+	@echo ... source/p1.obj
+	@echo ... source/p1.i
+	@echo ... source/p1.s
 .PHONY : help
 
 

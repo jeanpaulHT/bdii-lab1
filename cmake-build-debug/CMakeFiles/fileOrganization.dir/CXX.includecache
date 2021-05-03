@@ -20,15 +20,15 @@ cstring
 algorithm
 -
 
-C:/Users/esteb/Desktop/bdii-lab1/src/p1.cpp
+C:/Users/esteb/Desktop/bdii-lab1/source/p1.cpp
 iostream
 -
 time.h
 -
-../tests/test_P1.hpp
-C:/Users/esteb/Desktop/bdii-lab1/tests/test_P1.hpp
+../test_headers/test_P1.hpp
+C:/Users/esteb/Desktop/bdii-lab1/test_headers/test_P1.hpp
 
-C:/Users/esteb/Desktop/bdii-lab1/tests/test_P1.hpp
+C:/Users/esteb/Desktop/bdii-lab1/test_headers/test_P1.hpp
 iomanip
 -
 cassert
