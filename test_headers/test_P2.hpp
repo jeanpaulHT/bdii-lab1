@@ -55,17 +55,28 @@ void test2 ()
     }
 
     auto loaded = fr.load();
+    assert(loaded.size() == NUM_ENTRIES);
+    std::cout << "Passed test for add\n";
     string last;
     stringstream ss;
 
     for (int i = 1; i <= NUM_ENTRIES; ++i)
     {
+        ss.str("");
         ss << std::setfill('0') << std::setw(4) << i;
         last = ss.str();
-        assert(memcmp(loaded[i].codigo, last.c_str(), CODE_SZ));
+        assert(memcmp(loaded[i - 1].codigo, last.c_str(), CODE_SZ) == 0);
+        std::cout << "Passed test for load on student: " << i << '\n';
     }
 
-    assert(memcmp(fr.readRecord(NUM_ENTRIES).codigo, last.c_str(), CODE_SZ));
+    for (int i = 1; i <= NUM_ENTRIES; ++i)
+    {
+        auto cur = fr.readRecord(i);
+
+        assert(memcmp(&cur, &loaded[i - 1], sizeof(P2::Alumno)) == 0);
+
+        std::cout << "Passed test for readRecord on student: " << i << '\n';
+    }
     loaded.clear();
 
     bool erase_1 = fr.erase(NUM_ENTRIES);
@@ -74,26 +85,28 @@ void test2 ()
     assert(erase_1);
     assert(erase_2);
 
+    std::cout << "Passed tests for delete\n";
+
+
     fr.add(random_p2_student(NUM_ENTRIES + 1));
     fr.add(random_p2_student(NUM_ENTRIES + 2));
 
+    ss.str("");
     ss << std::setfill('0') << std::setw(4) << NUM_ENTRIES + 2;
     auto str = ss.str();
-    assert(memcmp(fr.readRecord(NUM_ENTRIES).codigo, str.c_str(), CODE_SZ));
+    assert(memcmp(fr.readRecord(NUM_ENTRIES).codigo, str.c_str(), CODE_SZ) == 0);
+
+    std::cout << "Passed test 1 for add after delete\n";
 
     assert(fr.read_head() == -1);
+    std::cout << "Passed test 2 for add after delete\n";
 
     fr.erase(1);
     fr.erase(2);
     assert(!fr.erase(2));
 
-    for (auto i : fr.load())
-    {
-        print(i);
-        std::cout << std::endl;
-    }
-
-
+    std::cout << "Passed test for delete after delete on same entry\n";
+    std::cout << "Passed checks for delete\n";
     std::cout << "Test 2 passed!";
 
 }

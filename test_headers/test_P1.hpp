@@ -37,7 +37,8 @@ P1::Alumno random_p1_student (int code)
 
 void test1 ()
 {
-    constexpr int NUM_ENTRIES = 10;
+    constexpr auto CODE_SZ = sizeof(P1::Alumno::codigo);
+    constexpr int NUM_ENTRIES = 100;
 
     string fileName = "datos1";
     auto fr = P1::FixedRecord("../data/" + fileName + ".txt");
@@ -50,16 +51,30 @@ void test1 ()
 
 //    cout << "------Prueba de load------\n";
     auto loadVec = fr.load();
-    int numAlumnos = 0;
-    for (auto alumno: loadVec)
-    {
-        cout << "-------------------\n";
-        print(alumno);
-        print(fr.readRecord(numAlumnos));
-        assert(alumno == fr.readRecord(numAlumnos));
-        cout << "indice:" << numAlumnos << '\n';
+    assert(loadVec.size() == NUM_ENTRIES);
+    cout << "Passed check for add"  << '\n';
 
-        numAlumnos++;
+    int numAlumnos = 0;
+    std::stringstream ss;
+
+    for (int i = 0; i < loadVec.size(); ++i) {
+        ss.str("");
+        ss << std::setfill('0') << std::setw(CODE_SZ - 1) << i + 1;
+        auto last = ss.str();
+        assert(memcmp(loadVec[i].codigo, last.c_str(), CODE_SZ) == 0);
+        cout << "Passed check for load on student #" << i + 1 << '\n';
+    }
+
+    std::cout << "Passed all tests for load\n";
+
+    numAlumnos = 0;
+    for (const auto& alumno: loadVec)
+    {
+//        cout << "-------------------\n";
+//        print(alumno);
+//        print(fr.readRecord(numAlumnos));
+        assert(alumno == fr.readRecord(numAlumnos));
+        cout << "Passed check for readRecord on student #" << ++numAlumnos << '\n';
     }
 
     std::cout << "Test 1 passed!";

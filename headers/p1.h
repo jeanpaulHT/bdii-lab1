@@ -19,15 +19,15 @@ namespace P1
 
     struct Alumno
     {
-        char codigo[5] = {'\0'};
-        char nombre[11] = {'\0'};
-        char apellidos[20] = {'\0'};
-        char carrera[15] = {'\0'};
+        char codigo[5] = { '\0' };
+        char nombre[11] = { '\0' };
+        char apellidos[20] = { '\0' };
+        char carrera[15] = { '\0' };
 
-        bool operator==(const Alumno &rhs) const;
+        bool operator == (const Alumno& rhs) const;
     };
 
-    constexpr int ALUMNO_MB_SIZE[] = { 5, 11, 20, 15};
+    constexpr int ALUMNO_MB_SIZE[] = { 5, 11, 20, 15 };
 
 
     class FixedRecord
@@ -63,6 +63,12 @@ void print (P1::Alumno a)
 
 P1::FixedRecord::FixedRecord (string str) : file(std::move(str))
 {
+    fstream stream(file, std::ios::out);
+    if (!stream)
+    {
+        std::cerr << "ERROR: couldn't open file: " << file << '\n';
+        exit(-2);
+    }
 }
 
 static inline void rtrim (std::string& s)
@@ -127,7 +133,7 @@ P1::Alumno P1::FixedRecord::readRecord (int id)
     string line;
 
     inFile.seekg(id * (sizeof(Alumno) + sizeof(char) * 2), ios::beg);
-    getline(inFile,line);
+    getline(inFile, line);
 
     int pos = 0;
     for (int length : ALUMNO_MB_SIZE)
@@ -142,7 +148,8 @@ P1::Alumno P1::FixedRecord::readRecord (int id)
     return alumno;
 }
 
-bool P1::Alumno::operator==(const P1::Alumno &rhs) const {
+bool P1::Alumno::operator == (const P1::Alumno& rhs) const
+{
     return strcmp(this->codigo, rhs.codigo) == 0 &&
            strcmp(this->nombre, rhs.nombre) == 0 &&
            strcmp(this->apellidos, rhs.apellidos) == 0 &&
