@@ -12,6 +12,14 @@
 #include <cstring>
 #include <algorithm>
 
+#ifdef __unix__                    /* __unix__ is usually defined by compilers targeting Unix systems */
+#define CR_SIZE 1
+#elif defined(_WIN32) || defined(_WIN64) || defined(WIN32)     /* _Win32 is usually defined by compilers targeting 32 or   64 bit Windows systems */
+#define CR_SIZE 2
+#else
+#define CR_SIZE 1                       /* Im just betting here, but you're probably using MAC */
+#endif
+
 using namespace std;
 
 namespace P1
@@ -125,6 +133,7 @@ void P1::FixedRecord::add (P1::Alumno record)
 }
 
 
+
 P1::Alumno P1::FixedRecord::readRecord (int id)
 {
     ifstream inFile(file, ios::binary);
@@ -132,7 +141,7 @@ P1::Alumno P1::FixedRecord::readRecord (int id)
     Alumno alumno{};
     string line;
 
-    inFile.seekg(id * (sizeof(Alumno) + sizeof(char) * 2), ios::beg);
+    inFile.seekg(id * (sizeof(Alumno) + sizeof(char) * CR_SIZE), ios::beg);
     getline(inFile, line);
 
     int pos = 0;
