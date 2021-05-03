@@ -6,7 +6,7 @@
 #define FILEORGANIZATION_TEST_P3_HPP
 
 #include <iomanip>
-#include "../src/p3.h"
+#include "../headers//p3.h"
 
 static double rand_payment ()
 {

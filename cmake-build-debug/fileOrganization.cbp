@@ -82,13 +82,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/esteb/Desktop/bdii-lab1/p4.cpp">
+		<Unit filename="C:/Users/esteb/Desktop/bdii-lab1/headers/p1.h">
 			<Option target="fileOrganization"/>
 		</Unit>
-		<Unit filename="C:/Users/esteb/Desktop/bdii-lab1/src/p4.h">
+		<Unit filename="C:/Users/esteb/Desktop/bdii-lab1/src/p1.cpp">
 			<Option target="fileOrganization"/>
 		</Unit>
-		<Unit filename="C:/Users/esteb/Desktop/bdii-lab1/tests/test_P4.hpp">
+		<Unit filename="C:/Users/esteb/Desktop/bdii-lab1/tests/test_P1.hpp">
 			<Option target="fileOrganization"/>
 		</Unit>
 		<Unit filename="C:/Users/esteb/Desktop/bdii-lab1/CMakeLists.txt">

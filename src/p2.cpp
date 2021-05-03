@@ -1,6 +1,6 @@
 #include <iostream>
 #include <time.h>
-#include "tests/test_P2.hpp"
+#include "../tests/test_P2.hpp"
 
 
 

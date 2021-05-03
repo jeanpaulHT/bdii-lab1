@@ -3,7 +3,7 @@
 
 #include <iomanip>
 #include <cassert>
-#include "../src/p1.h"
+#include "../headers/p1.h"
 
 static double rand_payment ()
 {

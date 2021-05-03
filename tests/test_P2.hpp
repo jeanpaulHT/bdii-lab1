@@ -7,7 +7,7 @@
 
 #include <iomanip>
 #include <cassert>
-#include "../src/p2.h"
+#include "../headers//p2.h"
 
 static double rand_payment ()
 {

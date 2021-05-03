@@ -6,15 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/esteb/Desktop/bdii-lab1/p4.cpp
-iostream
--
-time.h
--
-tests/test_P4.hpp
-C:/Users/esteb/Desktop/bdii-lab1/tests/test_P4.hpp
-
-C:/Users/esteb/Desktop/bdii-lab1/src/p4.h
+C:/Users/esteb/Desktop/bdii-lab1/headers/p1.h
 string
 -
 vector
@@ -27,16 +19,20 @@ cstring
 -
 algorithm
 -
-cmath
--
-utility
--
 
-C:/Users/esteb/Desktop/bdii-lab1/tests/test_P4.hpp
+C:/Users/esteb/Desktop/bdii-lab1/src/p1.cpp
+iostream
+-
+time.h
+-
+../tests/test_P1.hpp
+C:/Users/esteb/Desktop/bdii-lab1/tests/test_P1.hpp
+
+C:/Users/esteb/Desktop/bdii-lab1/tests/test_P1.hpp
 iomanip
 -
 cassert
 -
-../src/p4.h
-C:/Users/esteb/Desktop/bdii-lab1/src/p4.h
+../headers/p1.h
+C:/Users/esteb/Desktop/bdii-lab1/headers/p1.h
 

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/esteb/Desktop/bdii-lab1/p4.cpp" "C:/Users/esteb/Desktop/bdii-lab1/cmake-build-debug/CMakeFiles/fileOrganization.dir/p4.cpp.obj"
+  "C:/Users/esteb/Desktop/bdii-lab1/src/p1.cpp" "C:/Users/esteb/Desktop/bdii-lab1/cmake-build-debug/CMakeFiles/fileOrganization.dir/src/p1.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
