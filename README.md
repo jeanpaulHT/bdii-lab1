@@ -17,6 +17,8 @@ g++ p1.cpp             # same for p2, p3 or p4
 
 ### On Clion:
 
+```git clone https://github.com/jeanpaulHT/bdii-lab1.git```
+- Open the folder as a new project
 - Open CMakeLists.txt
 - Comment out the line which corresponds to the test you want to run
 - Run the project
